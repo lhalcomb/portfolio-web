@@ -50,7 +50,11 @@ export default function RootLayout({
                     <NavigationMenu>
                         <NavigationMenuList className={'font-semibold text-sm'}>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild><Link href='/projects'
+                              <NavigationMenuLink asChild><Link href='/about'
+                                                                  passHref>About</Link></NavigationMenuLink>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
+                                <NavigationMenuLink asChild><Link href='/projects/finished'
                                                                   passHref>Projects</Link></NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>

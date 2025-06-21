@@ -21,7 +21,7 @@ export default function Home() {
                 </Link>
             </div>
         </div>
-        <div className=" inline-flex flex-col justify-start items-center gap-2.5">
+        <div className=" inline-flex flex-col justify-start gap-2.5">
             <div className="border-4 border-red-600 rounded-md overflow-hidden ">
                 <Image
                 src="/laydenOnBench.jpg"
@@ -44,7 +44,11 @@ export default function Home() {
                     <Image src="/gmail.png" alt="Gmail" width={30} height={30} />
                 </Link>
             </div>
+            {/* <h1 className="text-left font-bold text--web-white">About:</h1>
+            <p className = "indent-14"></p> */}
         </div>
+        
+        
     </div>
   );
 }

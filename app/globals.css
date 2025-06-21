@@ -76,6 +76,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
   --spidey-red: #E10600;
   --web-blue: #0047AB;
   --venom-black: #1C1C1C;
@@ -124,5 +125,30 @@
   html {
     background-color: #CCCCCC;
   }
+}
+.text--spidey-red {
+  color: var(--spidey-red);
+}
+.text--web-blue {
+  color: var(--web-blue);
+}
+.text--venom-black {
+  color: var(--venom-black);
+}
+.text--web-gray {
+  color: var(--web-gray);
+}
+.text--web-white {
+  color: var(--web-white);
+}
+.text--web-silver {
+  color: var(--web-silver);
+}
+.text--spider-gold {
+  color: var(--spider-gold);
+}
+
+.border--spidey-red {
+  border-color: var(--spidey-red);
 }
 
