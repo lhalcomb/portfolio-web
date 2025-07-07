@@ -156,3 +156,6 @@
   background-color: var(--web-blue);
 }
 
+.bg--venom-black {
+  background-color: var(--venom-black);
+}
