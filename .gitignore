@@ -27,3 +27,11 @@ Thumbs.db # Windows specific
 
 # Vercel deployment files (if used)
 .vercel/
+
+.env
+
+**/route.ts
+
+**/firebase.js
+**/utils.ts
+

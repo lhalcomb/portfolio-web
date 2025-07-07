@@ -152,3 +152,7 @@
   border-color: var(--spidey-red);
 }
 
+.bg--web-blue {
+  background-color: var(--web-blue);
+}
+
