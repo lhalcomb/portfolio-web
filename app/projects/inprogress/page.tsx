@@ -14,6 +14,15 @@ const wipProjects = [
    github: "https://github.com/lhalcomb/ChessBot",
    demo: ""
   },
+  {title: "Gravity Simulator - Coming Soon",
+   description: `I plan to develop a gravity simulator using OpenGL, GLFW, and other graphics programming libraries
+   to better my low level skills and learn some things about graphics programming. I also enjoy the mathematics behind 
+   the physics of our universe and would love to explore using my math skills in a project. `, 
+   image: "",
+   github: "To be - Dont Click Me Yet", 
+   demo: ""
+  }
+
 ];
 
 const wipProjectsLinks = [
