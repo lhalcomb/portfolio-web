@@ -1,8 +1,21 @@
 'use client';
 
-import React from 'react';
-import {Card, CardContent, CardActions, CardMedia, Typography, Button, Box} from '@mui/material';
+import React, {useState} from 'react';
+import {Accordion, AccordionSummary, AccordionDetails, Card, CardContent, CardActions, CardMedia, Typography, Button, Box} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+//scratched idea
+// import Dialog from '@mui/material/Dialog';
+// import DialogContent from '@mui/material/DialogContent';
+// import IconButton from '@mui/material/IconButton';
+// import CloseIcon from '@mui/icons-material/Close';
+
+
+type NestedProject = {
+  title: string;
+  image: string;
+  link: string;
+};
 
 type ProjectCardProps = {
     title: string;
@@ -11,11 +24,26 @@ type ProjectCardProps = {
     github: string;
     github2?: string;
     demo?: string;
+    accordionDetails?: string[];
+    nestedProjects?: NestedProject[];
 };
 
 
 export default function ProjectCard(
-    { title, description, image, github, github2, demo }: ProjectCardProps ){
+    { title, description, image, github, github2, demo, accordionDetails, nestedProjects }: ProjectCardProps ){
+        // const [open, setOpen] = useState(false);
+        // const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+        // const handleImageClick = (img: string) => {
+        //     setSelectedImage(img);
+        //     setOpen(true);
+        // };
+
+        // const handleClose = () => {
+        //     setOpen(false);
+        //     setSelectedImage(null);
+        // };
+
         return (
             <Card sx={
                     {maxWidth: 700, width: '100%', 
@@ -41,6 +69,55 @@ export default function ProjectCard(
                         <Typography variant="body2" color="text.secondary">
                             {description}
                         </Typography>
+                        {accordionDetails && (
+                        <Accordion sx={{ mt: 1 }}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography variant="subtitle2">CNN Digit Classifier (0-9)</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <ul className="list-disc list-inside text-sm text-gray-600">
+                            {accordionDetails.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                            ))}
+                            </ul>
+                            {nestedProjects && nestedProjects.length > 0 && (
+                                <Box
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 2,
+                                    border: '1px solid #ccc',
+                                    padding: 2,
+                                    borderRadius: 2,
+                                    backgroundColor: '#f9f9f9'
+                                }}
+                                >
+                                <CardMedia
+                                    component="img"
+                                    image={nestedProjects[0].image}
+                                    alt={nestedProjects[0].title}
+                                    sx={{ width: 200, height: 100, borderRadius: 2 }}
+                                />
+                                <Box>
+                                    <Typography variant="subtitle1" fontWeight="bold">
+                                    {nestedProjects[0].title}
+                                    </Typography>
+                                    <Button
+                                    size="small"
+                                    variant="outlined"
+                                    href={nestedProjects[0].link}
+                                    target="_blank"
+                                    sx={{ mt: 1 }}
+                                    >
+                                    View Project
+                                    </Button>
+                                </Box>
+                                </Box>
+                    )}
+
+                        </AccordionDetails>
+                        </Accordion>
+                    )}
                         <CardActions sx={{ paddingLeft: 0 }}>
                             <Button size="small" href={github} target="_blank">
                             GitHub

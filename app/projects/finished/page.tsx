@@ -4,6 +4,7 @@ import React from 'react';
 
 import ProjectCard from '@/components/project-cards';
 import SideBar from '@/components/ui/SideBar';
+import AboutContainer from '@/components/ui/AboutContainer';
 
 
 //TODO: Implement the demo for the maze gen/solver and dlx solver in p5 js canvas. Then demo video of the KiiP App. 
@@ -38,7 +39,29 @@ const finishedProjects = [
                 It utilizes Firebase on the backend for authentication and database management.`,
    image: "",
    github: "https://github.com/lhalcomb/PortfolioWeb"
-  }
+  }, 
+
+  {
+  title: "Machine Learning Projects",
+  description: `There are a handful of projects that I worked on in my Machine Learning class my Junior year. 
+  Below you will find the project where I built a Convolutional Neural Network to classify the digits from the MNIST 
+  dataset.`,
+  image: "",
+  github: "https://github.com/lhalcomb/IntrotoML",
+  accordionDetails: [
+    "Trained a CNN to classify handwritten digits (MNIST). ",
+    "Used PyTorch with convolution, pooling, and dense layers. ",
+    "Visualized confusion matrix and training loss. ",
+    "Evaluated using accuracy and F1 score. "
+  ],
+  nestedProjects: [
+    {
+      title: "CNN MNIST Digit Classifier",
+      image: "/digitClassification.png",
+      link: "https://github.com/lhalcomb/IntrotoML/blob/main/PythonFiles/DigitClassificationCNN.py"
+    }
+  ]
+}
 
 
 ];
@@ -50,16 +73,34 @@ const finishedProjectsLinks = [
   { href: '#sudoku', label: 'Sudoku Solver'  },
   { href: '#kiip', label: 'KiiP App'  },
   { href: '#portfolio', label: 'Portfolio Site' },
+  {href: '#ml', label: 'Machine Learning Projects'}
 ]
+
 export default function FinishedPage() {
+  const ids = ["maze", "sudoku", "kiip", "portfolio", "ml"];
   return (
-    <div className= "flex justify-center items-center min-h-screen bg-[var(--web-gray)]">
-      <SideBar header="Projects" navLinks={finishedProjectsLinks} />
-      <div className="flex flex-col items-center space-y-15 gap-6 p-4 overflow-y-auto bg-[var(--venom-black)] max-h-100%">
-        {finishedProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+    <div className="flex justify-center items-center min-h-screen bg-[var(--web-gray)]">
+      <div className="flex p-10 ">
+        <div className="sticky top-15 self-start h-screen pr-4">
+          <SideBar header="Projects" navLinks={finishedProjectsLinks} />
+        </div>
+        
+        <div className="flex flex-col items-center space-y-15 gap-6 p-4 overflow-y-auto bg-[var(--venom-black)] max-h-100%">
+          {finishedProjects.map((project, index) => (
+            
+            <div key={index} id={ids[index]}>
+              <ProjectCard {...project} />
+            </div>
+
+          ))}
+        </div>
+        <div className="p-6 ">
+          <AboutContainer />
+        </div>
       </div>
     </div>
+
+    
+    
   );
 }

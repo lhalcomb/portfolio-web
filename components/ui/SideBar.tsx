@@ -19,7 +19,7 @@ export default function SideBar(
     {header, navLinks}: SideBarProps){
         return (
             // Sidebar.tsx (simplified)
-            <div className="w-60 h-full bg-[var(--venom-black)] text-white p-6 fixed left-0 top-0 border-r border-gray-700">
+        <div className="w-60  bg-[var(--venom-black)] text-white p-10  border-r border-gray-700">
             <h2 className="text-xl font-bold mb-4">{header}</h2>
             <nav className="flex flex-col gap-2">
                 {navLinks.map(({ href, label, icon }) => (
