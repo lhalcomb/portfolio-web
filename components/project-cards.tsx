@@ -1,6 +1,7 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {/*useState, */ JSX} from 'react';
+import Image from 'next/image';
 import {Accordion, AccordionSummary, AccordionDetails, Card, CardContent, CardActions, CardMedia, Typography, Button, Box} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -10,6 +11,33 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // import IconButton from '@mui/material/IconButton';
 // import CloseIcon from '@mui/icons-material/Close';
 
+import {
+  SiPython,
+  SiCplusplus,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFirebase,
+  SiPytorch, 
+  SiTypescript,
+  SiOpengl
+} from 'react-icons/si';
+
+
+const techIcons: { [key: string]: JSX.Element } = {
+  python: <SiPython title="Python" />,
+  cpp: <SiCplusplus title="C++" />,
+  react: <SiReact title="React" />,
+  nextjs: <SiNextdotjs title="Next.js" />,
+  tailwind: <SiTailwindcss title="Tailwind CSS" />,
+  firebase: <SiFirebase title="Firebase" />,
+  pytorch: <SiPytorch title="PyTorch" />,
+  typescript: <SiTypescript title="Typescript" />,
+  opengl: <SiOpengl title="OpenGL" />,
+  raylib: <Image src="/raylib.png" alt="Raylib" title="Raylib" width="25" height = "25" />,
+  matplotlib: <Image src="/matplotlib.png" alt="Matplotlib" title="Matplotlib" width = "40" height = "40" />
+
+};
 
 type NestedProject = {
   title: string;
@@ -26,11 +54,14 @@ type ProjectCardProps = {
     demo?: string;
     accordionDetails?: string[];
     nestedProjects?: NestedProject[];
+    techStack?: string[];
 };
 
 
-export default function ProjectCard(
-    { title, description, image, github, github2, demo, accordionDetails, nestedProjects }: ProjectCardProps ){
+
+    export default function ProjectCard(
+    { title, description, image, github, github2, demo, accordionDetails, nestedProjects, techStack }: ProjectCardProps
+        ) {
         // const [open, setOpen] = useState(false);
         // const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -43,42 +74,42 @@ export default function ProjectCard(
         //     setOpen(false);
         //     setSelectedImage(null);
         // };
-
         return (
-            <Card sx={
-                    {maxWidth: 700, width: '100%', 
-                    transition: 'transform 0.2s ease',
-                    '&:hover': {
+            <div className="bg-gradient-to-r from-[var(--spidey-red)] via-[var(--web-blue)] to-[var(--spidey-red)] p-1 rounded-2xl shadow-xl">
+            <Card
+                sx={{
+                maxWidth: 700,
+                width: '100%',
+                borderRadius: '1rem', // matches rounded-2xl
+                transition: 'transform 0.2s ease',
+                backgroundColor: 'white',
+                '&:hover': {
                     transform: 'scale(1.02)',
                     boxShadow: 6,
-                    }}}>
+                }
+                }}
+            >
                 <div className="flex">
-                    <CardContent>
+                <CardContent>
                     <Typography gutterBottom variant="h5">
-                        {title}
+                    {title}
                     </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                        <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-between',
-                            flexGrow: 1
-                        }}
-                        >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flexGrow: 1 }}>
                         <Typography variant="body2" color="text.secondary">
-                            {description}
+                        {description}
                         </Typography>
+
                         {accordionDetails && (
                         <Accordion sx={{ mt: 1 }}>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography variant="subtitle2">CNN Digit Classifier (0-9)</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
+                            </AccordionSummary>
+                            <AccordionDetails>
                             <ul className="list-disc list-inside text-sm text-gray-600">
-                            {accordionDetails.map((item, idx) => (
+                                {accordionDetails.map((item, idx) => (
                                 <li key={idx}>{item}</li>
-                            ))}
+                                ))}
                             </ul>
                             {nestedProjects && nestedProjects.length > 0 && (
                                 <Box
@@ -89,7 +120,7 @@ export default function ProjectCard(
                                     border: '1px solid #ccc',
                                     padding: 2,
                                     borderRadius: 2,
-                                    backgroundColor: '#f9f9f9'
+                                    backgroundColor: '#f9f9f9',
                                 }}
                                 >
                                 <CardMedia
@@ -113,44 +144,48 @@ export default function ProjectCard(
                                     </Button>
                                 </Box>
                                 </Box>
-                    )}
-
-                        </AccordionDetails>
+                            )}
+                            </AccordionDetails>
                         </Accordion>
-                    )}
-                        <CardActions sx={{ paddingLeft: 0 }}>
-                            <Button size="small" href={github} target="_blank">
-                            GitHub
-                            </Button>
-                            {github2 && (
-                            <Button size="small" href={github2} target="_blank">
-                                GitHub
-                            </Button>
-                            )}
-                            {demo && (
-                            <Button size="small" href={demo} target="_blank">
-                                Live Demo
-                            </Button>
-                            )}
-                        </CardActions>
+                        )}
+                        {techStack && (
+                        <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+                            {techStack.map((tech, idx) => (
+                            <Box key={idx} sx={{ fontSize: 24 }}>
+                                {techIcons[tech]}
+                            </Box>
+                            ))}
                         </Box>
-                        {image && (
+                        )}
+
+                        <CardActions sx={{ paddingLeft: 0 }}>
+                        <Button size="small" href={github} target="_blank">GitHub</Button>
+                        {github2 && (
+                            <Button size="small" href={github2} target="_blank">GitHub</Button>
+                        )}
+                        {demo && (
+                            <Button size="small" href={demo} target="_blank">Live Demo</Button>
+                        )}
+                        </CardActions>
+                    </Box>
+
+                    {image && (
                         <CardMedia
-                            component="img"
-                            image={image}
-                            alt={title}
-                            sx={{
+                        component="img"
+                        image={image}
+                        alt={title}
+                        sx={{
                             width: 200,
                             height: '85%',
                             borderTopRightRadius: '4px',
                             borderBottomRightRadius: '4px'
-                            }}
+                        }}
                         />
-                        )}
+                    )}
                     </Box>
-                    </CardContent>
+                </CardContent>
                 </div>
             </Card>
+            </div>
         );
-    }
-
+        }

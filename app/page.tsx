@@ -32,16 +32,16 @@ export default function Home() {
             </div>
             <div className="inline-flex justify-center items-center gap-7">
                 <Link href="https://github.com/lhalcomb" target="_blank">
-                    <Image src="/github-mark.svg" alt="GitHub" width={30} height={30} />
+                    <Image src="/github-mark.svg" alt="GitHub" width={30} height={30} className= "transition-transform duration-200 ease-in-out hover:scale-125" />
                 </Link>
                 <Link href="https://www.linkedin.com/in/lhalcomb" target="_blank">
-                    <Image src="/linkedin.png" alt="LinkedIn" width={30} height={30} />
+                    <Image src="/linkedin.png" alt="LinkedIn" width={30} height={30} className= "transition-transform duration-200 ease-in-out hover:scale-125" />
                 </Link>
                 <Link href="mailto:lhalcomb@drury.edu">
-                    <Image src="/outlook.png" alt="Outlook" width={30} height={30} />
+                    <Image src="/outlook.png" alt="Outlook" width={30} height={30} className= "transition-transform duration-200 ease-in-out hover:scale-125" />
                 </Link>
                 <Link href="mailto:lhalcomb@gmail.com">
-                    <Image src="/gmail.png" alt="Gmail" width={30} height={30} />
+                    <Image src="/gmail.png" alt="Gmail" width={30} height={30} className= "transition-transform duration-200 ease-in-out hover:scale-125" />
                 </Link>
             </div>
             {/* <h1 className="text-left font-bold text--web-white">About:</h1>

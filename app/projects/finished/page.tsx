@@ -9,28 +9,34 @@ import AboutContainer from '@/components/ui/AboutContainer';
 
 //TODO: Implement the demo for the maze gen/solver and dlx solver in p5 js canvas. Then demo video of the KiiP App. 
 
+
+
+
 const finishedProjects = [
   // Example project data
   {title: "Maze Generator & Solver",
    description: "Maze generator and solver written in Python. The project utilizes multiple algorithms to generate and solve mazes, including A* and Kruskal's algorithms.",
    image: "/mazeImage.png", 
    github: "https://github.com/lhalcomb/MazeGenerationPy",
-   demo: ""
+   demo: "/demo/maze",
+   techStack: ["python", "pygame"]
   },
   {title: "Sudoku Solver",
    description: "Donald Knuth's Dancing Links algorithm written in C++. And one written in Python with PyGame to provide a visual representation of the algorithm.",
    image: "/sudoku.png", 
    github: "https://github.com/lhalcomb/SudokuPyGame",
    github2:"https://github.com/lhalcomb/Sudokudlx",
-   demo: ""
+   demo: "/demo/test",
+   techStack: ["python", "pygame", "cpp"]
   },
   {
     title: "KiiP - Key Investment Income Planner",
     description: `2024-25 Fall Semester Software Engineering project for the course. This is a Finance Tracker app that is designed to help you track 
     your spending changes or habits and analyze them.`,
-    image: "",
+    image: "/kiip.png",
     github: "https://github.com/lhalcomb/Kiip",
-    demo: ""
+    demo: "",
+    techStack: ["expo", "react", "mySQL"]
   }, 
 
   {title: "Portfolio Website",
@@ -38,7 +44,8 @@ const finishedProjects = [
                 It is built with Next.js, React, and Tailwind CSS. It is a Full Stack application that showcases my projects and skills.
                 It utilizes Firebase on the backend for authentication and database management.`,
    image: "",
-   github: "https://github.com/lhalcomb/PortfolioWeb"
+   github: "https://github.com/lhalcomb/PortfolioWeb",
+   techStack: ["nextjs", "firebase", "typescript", "tailwind"]
   }, 
 
   {
@@ -60,9 +67,9 @@ const finishedProjects = [
       image: "/digitClassification.png",
       link: "https://github.com/lhalcomb/IntrotoML/blob/main/PythonFiles/DigitClassificationCNN.py"
     }
-  ]
+  ], 
+  techStack: ["python", "pytorch", "matplotlib"]
 }
-
 
 ];
 

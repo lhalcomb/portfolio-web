@@ -12,7 +12,8 @@ const wipProjects = [
    description: "In the process of creating a Chess Bot in C++ using the RayLib game development graphics library. ",
    image: "/chess.png", 
    github: "https://github.com/lhalcomb/ChessBot",
-   demo: ""
+   demo: "", 
+   techStack: ["cpp", "raylib"]
   },
   {title: "Gravity Simulator - Coming Soon",
    description: `I plan to develop a gravity simulator using OpenGL, GLFW, and other graphics programming libraries
@@ -20,7 +21,8 @@ const wipProjects = [
    the physics of our universe and would love to explore using my math skills in a project. `, 
    image: "",
    github: "To be - Dont Click Me Yet", 
-   demo: ""
+   demo: "", 
+   techStack: ["cpp", "opengl", "GLFW"]
   }
 
 ];
