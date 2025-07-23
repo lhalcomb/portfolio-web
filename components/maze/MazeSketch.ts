@@ -1,5 +1,5 @@
 // components/maze/mazeSketch.ts
-import { type Sketch } from "@p5-wrapper/react";
+import p5 from 'p5';
 import Cell from "./Cell";
 import Maze from "./Maze";
 import PriorityQueue from "./PriorityQueue";
@@ -20,13 +20,10 @@ let closedSet: Set<Cell>;
 let aStarRunning = false;
 let aStarFinished = false;
 
-console.log("reached the maze sketch file");
 
-const mazeSketch: Sketch = (p5) => {
-    console.log("mazeSketch function loaded");
+const mazeSketch = (p5: p5) => {
     p5.setup = () => {
-        p5.createCanvas(540, 540, p5.WEBGL);
-        console.log("set up canvas");
+        p5.createCanvas(400, 400);
         cols = Math.floor(p5.width / w);
         rows = Math.floor(p5.height / w);
         grid = [];
@@ -42,8 +39,24 @@ const mazeSketch: Sketch = (p5) => {
         maze.initializeCosts();
         stack = [current];
 
-        const btn = p5.createButton("Solve Maze!");
-        btn.mousePressed(() => {
+        const container = p5.select("#button-container");
+        
+        const genMazebtn = p5.createButton("Generate Maze")
+        .class('px-4 py-2 bg-[#e50914] text-white rounded transition-transform duration-200 ease-in-out hover:scale-115')
+        .parent(container);
+
+        
+        genMazebtn.mousePressed(() => {
+          generateMazeDFS(grid[0]);
+          stack = [];
+        }); 
+
+        const solvebtn = p5.createButton("Solve Maze!")
+        .class('px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition')
+        .parent(container);
+
+
+        solvebtn.mousePressed(() => {
         if (!aStarRunning && !aStarFinished) {
             startCell = grid[0];
             endCell = grid[grid.length - 1];
@@ -69,7 +82,7 @@ const mazeSketch: Sketch = (p5) => {
     }
 
     if (stack.length > 0) {
-      stepDFS();
+      //stepDFS();
     } else if (aStarRunning) {
       aStarStep();
     }
@@ -145,7 +158,21 @@ const mazeSketch: Sketch = (p5) => {
     }
   };
 
-  const drawPath = (p5) => {
+  const generateMazeDFS = (cell: Cell) => {
+    cell.visited = true;
+
+    let next;
+    while ((next = cell.checkNeighbors(grid))) {
+      next.visited = true;
+      stack.push(cell); // For record-keeping or backtracking
+      removeWalls(cell, next);
+      generateMazeDFS(next);
+      stack.pop();
+    }
+
+  };
+
+  const drawPath = (p5: p5) => {
     p5.noFill();
     p5.stroke(0, 255, 0, 150);
     p5.strokeWeight(2);

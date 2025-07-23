@@ -3,7 +3,7 @@
 import p5 from 'p5';
 import React, { useEffect, useRef } from 'react';
 
-
+//KEEP THIS CODE FOR REFERENCE. MIGHT BE NEEDED LATER
 
 function sketch(p: p5) {
     let x: number; // X-coordinate of the circle's center
