@@ -1,4 +1,4 @@
-
+'use client'
 //P5Sketch.ts
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';

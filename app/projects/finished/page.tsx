@@ -26,7 +26,7 @@ const finishedProjects = [
    image: "/sudoku.png", 
    github: "https://github.com/lhalcomb/SudokuPyGame",
    github2:"https://github.com/lhalcomb/Sudokudlx",
-   demo: "/demo/test",
+   demo: "/demo/sudoku",
    techStack: ["python", "pygame", "cpp"]
   },
   {

@@ -6,7 +6,7 @@ import mazeSketch from '@/components/maze/MazeSketch';
 
 const P5Sketch = dynamic(() => import('@/components/P5Sketch'), { ssr: false });
 
-export default function Test2() {
+export default function Maze() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
             <h1 className="text-2xl font-bold mb-4">Maze Generator & Solver</h1>
