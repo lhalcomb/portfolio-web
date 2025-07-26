@@ -17,7 +17,7 @@ const impossibleGrid: number[][] = [
   [0, 0, 0, 0, 4, 0, 0, 0, 9]
 ];
 
-let sudokuCSV: p5.Table;
+//let sudokuCSV: p5.Table;
 let currentQuiz: number[][];                      
 let currentGrid: number[][] = impossibleGrid;
 let sudokuBoard: SudokuBoard;
@@ -42,6 +42,7 @@ const sudokuSketch = (p: p5) => {
 
     const lines = text.trim().split("\n");
     const header = lines[0].trim();
+    console.log(header);
     const quizzes = lines.slice(1).map(line => line.trim());
 
   return quizzes;
@@ -49,12 +50,12 @@ const sudokuSketch = (p: p5) => {
 
 
 
-  function sudokuQuiz(): void {
-    for (let r = 0; r < sudokuCSV.getRowCount(); r++) {
-      const quiz = sudokuCSV.getNum(r, "quizzes");
-      console.log(quiz);
-    }
-  }
+  // function sudokuQuiz(): void {
+  //   for (let r = 0; r < sudokuCSV.getRowCount(); r++) {
+  //     const quiz = sudokuCSV.getNum(r, "quizzes");
+  //     console.log(quiz);
+  //   }
+  // }
 
   function pickRandomQuiz(quizzes: string[]): number[][] {
     // if (!sudokuCSV){

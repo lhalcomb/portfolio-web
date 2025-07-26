@@ -2,7 +2,10 @@ node_modules
 
 # Next.js build output
 .next/
-out/ # If using next export
+/out/
+
+#production
+/build
 
 # Environment variables
 .env.local

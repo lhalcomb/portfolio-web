@@ -110,18 +110,18 @@ const mazeSketch = (p5: p5) => {
     }
 }
 
-  const stepDFS = () => {
-    const cell: Cell | undefined = stack.pop();
-    if (!cell) return; 
-    cell.visited = true;
-    const next = cell.checkNeighbors(grid);
-    if (next) {
-      next.visited = true;
-      stack.push(cell);
-      stack.push(next);
-      removeWalls(cell, next);
-    }
-  };
+  // const stepDFS = () => {
+  //   const cell: Cell | undefined = stack.pop();
+  //   if (!cell) return; 
+  //   cell.visited = true;
+  //   const next = cell.checkNeighbors(grid);
+  //   if (next) {
+  //     next.visited = true;
+  //     stack.push(cell);
+  //     stack.push(next);
+  //     removeWalls(cell, next);
+  //   }
+  // };
 
   const aStarStep = () => {
     if (!openSet.isEmpty()) {

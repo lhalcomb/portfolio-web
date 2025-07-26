@@ -7,8 +7,12 @@ import { collection, addDoc } from 'firebase/firestore';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 //const SITE_KEY = process.env.PUBLIC_RECAPTCHA_SITE_KEY; // ReCAPTCHA site key from environment variables
-const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY; // Use NEXT_PUBLIC_ prefix for client-side access
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 console.log('ReCAPTCHA Site Key:', SITE_KEY); // Log the site key for debugging
+
+if (!SITE_KEY) {
+  throw new Error("Missing NEXT_PUBLIC_RECAPTCHA_SITE_KEY env variable");
+}
 
 
 
@@ -76,7 +80,7 @@ export default function ContactForm(){
       onSubmit={handleSubmit}
       className="w-full p-6 shadow-md bg-[var(--venom-black)] rounded-lg"
     >
-      <h2 className="text-2xl font-bold mb-4 text-center">Have Questions? Let's talk</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Have Questions? Lets talk</h2>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <input
           name="firstName"
@@ -119,7 +123,7 @@ export default function ContactForm(){
           required
         />
       </div>
-      <ReCAPTCHA sitekey={SITE_KEY} onChange={token => setCaptchaToken(token)} />
+      <ReCAPTCHA sitekey={SITE_KEY!} onChange={token => setCaptchaToken(token)} />
       <button type="submit" className="w-full bg-[var(--web-blue)] text-white py-2 px-4 rounded hover:bg-blue-700">
         Send
       </button>
