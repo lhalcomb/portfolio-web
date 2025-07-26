@@ -8,7 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 //const SITE_KEY = process.env.PUBLIC_RECAPTCHA_SITE_KEY; // ReCAPTCHA site key from environment variables
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-console.log('ReCAPTCHA Site Key:', SITE_KEY); // Log the site key for debugging
+//console.log('ReCAPTCHA Site Key:', SITE_KEY); // Log the site key for debugging
 
 if (!SITE_KEY) {
   throw new Error("Missing NEXT_PUBLIC_RECAPTCHA_SITE_KEY env variable");
