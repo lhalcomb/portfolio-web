@@ -28,7 +28,7 @@ const P5Sketch: React.FC<P5SketchProps> = ({ sketch }) => {
         };
   }, [sketch, pathName]); // Triggers cleanup and recreate on route change
 
-  return <div ref={sketchRef} />;
+  return <div className = "" ref={sketchRef} />;
 };
 
 export default P5Sketch;
