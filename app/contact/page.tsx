@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[--web-gray] px-4">
+    <main className="min-h-screen flex items-center justify-center bg-[--web-gray] px-4 text-sm md:text-m">
       <div className="flex flex-col items-center space-y-6 w-full max-w-md">
         {/* Profile Image */}
         <div className="bg-gradient-to-r from-[var(--spidey-red)] via-[var(--web-blue)] to-[var(--spidey-red)] p-1 rounded-full shadow-xl">

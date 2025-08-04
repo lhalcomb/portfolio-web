@@ -88,7 +88,7 @@ export default function FinishedPage() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[var(--web-gray)]">
       <div className="flex p-10 ">
-        <div className="sticky top-15 self-start h-screen pr-4">
+        <div className="sticky hidden md:inline top-15 self-start h-screen pr-4">
           <SideBar header="Projects" navLinks={finishedProjectsLinks} />
         </div>
         
@@ -101,7 +101,7 @@ export default function FinishedPage() {
 
           ))}
         </div>
-        <div className="p-6 ">
+        <div className="p-6 hidden md:flex ">
           <AboutContainer />
         </div>
       </div>

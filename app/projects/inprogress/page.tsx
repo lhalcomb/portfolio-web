@@ -37,7 +37,7 @@ export default function WorksInProgress() {
   return (
      <div className="flex justify-center items-center min-h-screen bg-[var(--web-gray)]">
           <div className="flex p-10">
-            <div className="pr-4 min-h-full">
+            <div className="sticky hidden md:inline pr-4 min-h-full">
               <SideBar header="Projects" navLinks={wipProjectsLinks} />
             </div>
             
@@ -46,7 +46,7 @@ export default function WorksInProgress() {
                 <ProjectCard key={index} {...project} />
               ))}
             </div>
-            <div className="p-6 ">
+            <div className="p-6 hidden md:flex ">
               <AboutContainer />
             </div>
           </div>

@@ -13,7 +13,7 @@ export default function Resume() {
             height={96}
             className="w-24 h-24 rounded-full object-cover border-4 border-[var(--spidey-red)]"
           />
-          <div className="text-[var(--web-blue)]">
+          <div className="text-[var(--web-blue)] md:inline text-sm">
             <h1 className="text-3xl font-bold">Layden Halcomb</h1>
             <p className="text-[var(--web-gray)]">
               Math + CS @ Drury University | Software Developer

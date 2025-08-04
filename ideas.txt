@@ -1,5 +1,6 @@
 A few ideas to add to the project: 
 
-Skills tab? Or a list of skills on the Resume tab? 
 Generate different things about me on home page? 
-Experience timline component added to the header nav. Then deprecate resume tab
+When get actual experience - Experience timeline component added to the header nav. Then deprecate resume tab
+MobileSideBar.tsx? -- adding simple round about container in the mobile side bar? 
+

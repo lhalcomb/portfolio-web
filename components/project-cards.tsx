@@ -168,20 +168,16 @@ type ProjectCardProps = {
                         )}
                         </CardActions>
                     </Box>
-
+                    <div className = "hidden md:flex w-[400px] ">
                     {image && (
                         <CardMedia
                         component="img"
                         image={image}
                         alt={title}
-                        sx={{
-                            width: 200,
-                            height: '85%',
-                            borderTopRightRadius: '4px',
-                            borderBottomRightRadius: '4px'
-                        }}
+                    
                         />
                     )}
+                    </div>
                     </Box>
                 </CardContent>
                 </div>
