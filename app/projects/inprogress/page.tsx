@@ -7,7 +7,15 @@ import SideBar from '@/components/ui/SideBar';
 import AboutContainer from '@/components/ui/AboutContainer';
 
 const wipProjects = [
-  // Example project data
+  {
+    title: "Blokus Project", 
+    description: `Exploring the game of Blokus with Game Theory, Software Engineering, and a bit of AI. This project was developed with PyGame and Python.`,
+    image: "/blokusDuo.png",
+    github: "https://github.com/lhalcomb/Blokus",
+    demo: "",
+    techStack: ["pygame", "pytorch", "python"]
+  },
+
   {title: "Chess Bot in C++",
    description: "In the process of creating a Chess Bot in C++ using the RayLib game development graphics library. ",
    image: "/chess.png", 
@@ -15,6 +23,7 @@ const wipProjects = [
    demo: "", 
    techStack: ["cpp", "raylib"]
   },
+  
   {title: "Gravity Simulator - Coming Soon",
    description: `I plan to develop a gravity simulator using OpenGL, GLFW, and other graphics programming libraries
    to better my low level skills and learn some things about graphics programming. I also enjoy the mathematics behind 
@@ -30,10 +39,13 @@ const wipProjects = [
 const wipProjectsLinks = [
   { href: '/', label: 'Home' },
   { href: '/projects/finished', label: 'Finished Projects' },
-  { href: '#chess', label: 'Chess Bot in C++'}
+  { href: '#blokus', label: 'Blokus'},
+  { href: '#chess', label: 'Chess Bot in C++'},
+  { href: '#gravity', label: 'Gravity Simulator'}
 ];
 
 export default function WorksInProgress() {
+  const ids = ["blokus", "chess", "gravity"];
   return (
      <div className="flex justify-center items-center min-h-screen bg-[var(--web-gray)]">
           <div className="flex p-10">
@@ -43,7 +55,9 @@ export default function WorksInProgress() {
             
             <div className="flex flex-col items-center space-y-15 gap-6 p-4 overflow-y-auto bg-[var(--venom-black)] max-h-100%">
               {wipProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
+                <div key = {index} id={ids[index]} > 
+                <ProjectCard {...project} />
+                </div>
               ))}
             </div>
             <div className="p-6 hidden md:flex ">

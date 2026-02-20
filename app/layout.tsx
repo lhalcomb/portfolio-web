@@ -11,7 +11,7 @@ import localFont from 'next/font/local'
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import "./globals.css";
+import "./globals.css"; 
 
 
 const inter = localFont({
@@ -57,10 +57,10 @@ export default function RootLayout({
                                 <NavigationMenuLink asChild><Link href='/projects/finished'
                                                                   passHref>Projects</Link></NavigationMenuLink>
                             </NavigationMenuItem>
-                            <NavigationMenuItem>
+                            {/* <NavigationMenuItem>
                                 <NavigationMenuLink asChild><Link href='/contact'
                                                                   passHref>Contact</Link></NavigationMenuLink>
-                            </NavigationMenuItem>
+                            </NavigationMenuItem> */}
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild><Link href='/resume'
                                                                   passHref>Resume</Link></NavigationMenuLink>

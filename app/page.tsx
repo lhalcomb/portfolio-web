@@ -155,7 +155,7 @@ export default function Home() {
         <div className=" hidden md:flex flex-col justify-start gap-2.5">
             <div className="border-4 border-red-600 rounded-md overflow-hidden ">
                 <Image
-                src="/laydenOnBench.jpg"
+                src="/laydenPark.jpeg"
                 alt="Layden on a bench"
                 width={400}
                 height={800}

@@ -45,35 +45,35 @@ type NestedProject = {
   link: string;
 };
 
+type AccordionSection = {
+  title: string;
+  details?: string[];
+  nestedProjects?: NestedProject[];
+};
+
 type ProjectCardProps = {
     title: string;
     description: string;
     image?: string;
-    github: string;
+    github?: string;
     github2?: string;
     demo?: string;
-    accordionDetails?: string[];
-    nestedProjects?: NestedProject[];
     techStack?: string[];
+    accordionSections?: AccordionSection[]
 };
 
 
 
     export default function ProjectCard(
-    { title, description, image, github, github2, demo, accordionDetails, nestedProjects, techStack }: ProjectCardProps
+    { title, description, image, github, github2, demo, accordionSections, techStack }: ProjectCardProps
         ) {
-        // const [open, setOpen] = useState(false);
-        // const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-        // const handleImageClick = (img: string) => {
-        //     setSelectedImage(img);
-        //     setOpen(true);
-        // };
+        const [expanded, setExpanded] = React.useState<number | false>(0);
 
-        // const handleClose = () => {
-        //     setOpen(false);
-        //     setSelectedImage(null);
-        // };
+        const handleChange = (panel: number) => (_: React.SyntheticEvent, isExpanded: boolean) => {
+        setExpanded(isExpanded ? panel : false);
+        };
+
         return (
             <div className="bg-gradient-to-r from-[var(--spidey-red)] via-[var(--web-blue)] to-[var(--spidey-red)] p-1 rounded-2xl shadow-xl">
             <Card
@@ -100,19 +100,24 @@ type ProjectCardProps = {
                         {description}
                         </Typography>
 
-                        {accordionDetails && (
-                        <Accordion sx={{ mt: 1 }}>
+                        {accordionSections && accordionSections.map((section, idx) => (
+                            <Accordion expanded={expanded === idx} onChange={handleChange(idx)} key={idx} sx={{ mt: 2 }}>
                             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography variant="subtitle2">CNN Digit Classifier (0-9)</Typography>
+                            <Typography variant="subtitle2">{section.title}</Typography>
                             </AccordionSummary>
+
                             <AccordionDetails>
-                            <ul className="list-disc list-inside text-sm text-gray-600">
-                                {accordionDetails.map((item, idx) => (
-                                <li key={idx}>{item}</li>
+                                {section.details && (
+                                    <ul className="list-disc list-inside text-sm text-gray-600">
+                                {section.details.map((item, i) => (
+                                <li key={i}>{item}</li>
                                 ))}
                             </ul>
-                            {nestedProjects && nestedProjects.length > 0 && (
+                            )}
+                        
+                            {section.nestedProjects && section.nestedProjects.map((proj, i) => (
                                 <Box
+                                key= {i}
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -125,29 +130,29 @@ type ProjectCardProps = {
                                 >
                                 <CardMedia
                                     component="img"
-                                    image={nestedProjects[0].image}
-                                    alt={nestedProjects[0].title}
+                                    image={proj.image}
+                                    alt={proj.title}
                                     sx={{ width: 200, height: 100, borderRadius: 2 }}
                                 />
                                 <Box>
                                     <Typography variant="subtitle1" fontWeight="bold">
-                                    {nestedProjects[0].title}
+                                    {proj.title}
                                     </Typography>
                                     <Button
                                     size="small"
                                     variant="outlined"
-                                    href={nestedProjects[0].link}
+                                    href={proj.link}
                                     target="_blank"
                                     sx={{ mt: 1 }}
                                     >
                                     View Project
                                     </Button>
                                 </Box>
-                                </Box>
-                            )}
+                            </Box>
+                            ))}
                             </AccordionDetails>
                         </Accordion>
-                        )}
+                        ))}
                         {techStack && (
                         <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
                             {techStack.map((tech, idx) => (
@@ -159,7 +164,9 @@ type ProjectCardProps = {
                         )}
 
                         <CardActions sx={{ paddingLeft: 0 }}>
-                        <Button size="small" href={github} target="_blank">GitHub</Button>
+                        {github && (
+                            <Button size="small" href={github} target="_blank">GitHub</Button>
+                        )}
                         {github2 && (
                             <Button size="small" href={github2} target="_blank">GitHub</Button>
                         )}

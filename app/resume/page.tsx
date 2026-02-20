@@ -23,7 +23,7 @@ export default function Resume() {
               forced to do it from home
             </p>
             <a
-              href="/Layden_Resume.pdf"
+              href="/Halcomb_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-[var(--spidey-red)]"
